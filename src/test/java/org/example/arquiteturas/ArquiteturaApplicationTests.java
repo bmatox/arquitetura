@@ -1,4 +1,4 @@
-package org.example.arquitetura;
+package org.example.arquiteturas;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

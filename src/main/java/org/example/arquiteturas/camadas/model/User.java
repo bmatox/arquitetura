@@ -1,4 +1,4 @@
-package org.example.arquitetura.model;
+package org.example.arquiteturas.camadas.model;
 
 import lombok.*;
 
@@ -12,6 +12,4 @@ public class User {
     private Long id;
     private String nome;
     private String email;
-
-
 }
