@@ -1,14 +1,15 @@
 package org.example.arquiteturas.hexagonal.serviceImpl;
 import org.example.arquiteturas.hexagonal.repository.UserRepository;
 import org.example.arquiteturas.hexagonal.models.User;
-import org.example.arquiteturas.hexagonal.services.UserInterface;
+import org.example.arquiteturas.hexagonal.services.UserService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+// Regras de negócio são implementadas aqui
 @Service
-public class UserServiceImpl implements UserInterface {
+public class UserServiceImpl implements UserService {
 
     private UserRepository repository;
 
@@ -24,7 +25,7 @@ public class UserServiceImpl implements UserInterface {
 
     @Override
     public User getUserById(Long id) {
-        Optional<User> user = repository.findById(id);
-        return user.orElse(null);
+        return repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado com o ID: " + id));
     }
 }
