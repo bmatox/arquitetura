@@ -1,4 +1,5 @@
 package org.example.arquiteturas.hexagonal.serviceImpl;
+import lombok.RequiredArgsConstructor;
 import org.example.arquiteturas.hexagonal.repository.UserRepository;
 import org.example.arquiteturas.hexagonal.models.User;
 import org.example.arquiteturas.hexagonal.services.UserService;
@@ -9,9 +10,10 @@ import java.util.Optional;
 
 // Regras de negócio são implementadas aqui
 @Service
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
-    private UserRepository repository;
+    private final UserRepository repository;
 
     @Override
     public User createUser(User user) {
